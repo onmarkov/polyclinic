@@ -1,0 +1,8 @@
+<div class="btn-group btn-group-xs" style="display:inline-flex;">
+    {% if perms.registry.view_booking %}
+        {% if record.btckt > 0 or record.ctckt > 0 %}
+            <a href="{% url 'booking' record.id %}" class="btn btn-warning" title="Бронировать">
+                <span class="glyphicon glyphicon-edit"></span></a>
+        {% endif %}
+    {% endif %}
+</div>

@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% load django_tables2 %}
+{% block content %}
+<h3>{{ title }}</h3>
+<h4>{{ message }}</h4>
+<form action="{% url 'booking_user' %}" method='POST'>
+    {% csrf_token %}
+    {% render_table table %}
+    <button name="action" value="done" class="btn btn-primary" type="submit" disabled>Выбрать</button>
+    <button name="action" value="cancel" class="btn btn-info" type="submit">Отмена</button>
+</form>
+{% endblock %}
+{% block scripts %}
+<script>
+    var checkboxes = $("input[type='checkbox']"),
+        submitButton = $("button[value='done']"),
+        item = -1;
+
+    checkboxes.click(function() {
+        submitButton.attr("disabled", !checkboxes.is(":checked"));
+        for (i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                item = i;
+                break;
+            }
+        }
+        for (i = 0; i < checkboxes.length; i++) {
+            if (!checkboxes[i].checked && i != item )
+                checkboxes[i].disabled = !checkboxes[i].disabled;
+        }
+    });
+</script>
+{% endblock %}

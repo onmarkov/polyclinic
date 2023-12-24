@@ -1,3 +1,4 @@
+import datetime
 from django import forms
 from django.contrib import admin, messages
 from django.contrib.auth.models import User
@@ -7,7 +8,6 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Specialization, Appointment, Profile, Booking
 from .forms import AppointmentForm, ProfileForm, BookingForm
-import datetime
 
 
 class SpecializationAdmin(admin.ModelAdmin):

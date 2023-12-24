@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path, include
 from registry.forms import BootstrapAuthenticationForm
+from registry.views import HomeView
 
 
 urlpatterns = [
     path('session_security/', include('session_security.urls')),
+    path('', HomeView.as_view(), name='home'),
     path('registry/', include('registry.urls')),
     path('login/', LoginView.as_view(
         template_name='login.html',

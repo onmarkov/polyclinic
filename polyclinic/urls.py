@@ -30,4 +30,5 @@ urlpatterns = [
     path('logout', LogoutView.as_view(next_page='login'), name='logout'),
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
+    path('admin_tools_stats/', include('admin_tools_stats.urls')),
 ]

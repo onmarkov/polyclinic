@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'django_tables2',
     'django_filters',
     'bootstrap3',
-    'registry'
+    'registry',
+    'djangobower'
 ]
 
 MIDDLEWARE = [
@@ -85,6 +86,15 @@ TEMPLATES = [
 WSGI_APPLICATION = 'polyclinic.wsgi.application'
 DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap.html'
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+BOWER_COMPONENTS_ROOT = Path.joinpath(BASE_DIR, 'bower_components')
+BOWER_INSTALLED_APPS = (
+    'd3#3.3.13',
+    'nvd3#1.8.6',
+)
+STATICFILES_FINDERS = (
+    'djangobower.finders.BowerFinder',
+)
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

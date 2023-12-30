@@ -86,8 +86,6 @@ WSGI_APPLICATION = 'polyclinic.wsgi.application'
 DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap.html'
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
-BOWER_COMPONENTS_ROOT = Path.joinpath(BASE_DIR, 'bower_components')
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
